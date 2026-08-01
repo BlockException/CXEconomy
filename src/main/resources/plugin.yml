@@ -1,0 +1,50 @@
+name: CXEconomy
+version: '${project.version}'
+main: de.comutions.cxeconomy.CXEconomy
+api-version: 1.21
+author: BlockException_
+website: https://comutions.de
+depend: [PlaceholderAPI, Vault]
+description: Economy plugin with Vault integration and AnvilGUI menus
+
+commands:
+  ecoreload:
+    description: Reload economy configuration
+    usage: /ecoreload
+    permission: cxeconomy.manage.reload.admin
+  pay:
+    description: Pay another player
+    usage: /pay <player>
+    permission: cxeconomy.pay
+  eco:
+    description: Manage economy
+    usage: /eco <add|set|remove|reset> <player>
+    permission: cxeconomy.manage.admin
+  balance:
+    description: Show your balance
+    usage: /balance
+    aliases: [bal]
+    permission: cxeconomy.balance
+  bal:
+    description: Show your balance
+    usage: /bal
+    permission: cxeconomy.balance
+
+permissions:
+  cxeconomy.manage.reload.admin:
+    description: Allows reloading the economy plugin
+    default: op
+  cxeconomy.pay:
+    description: Allows paying other players
+    default: true
+  cxeconomy.balance:
+    description: Allows seeing your balance
+    default: true
+  cxeconomy.manage.admin:
+    description: Allows managing economy
+    default: op
+
+
+
+
+

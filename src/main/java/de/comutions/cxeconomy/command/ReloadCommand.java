@@ -1,0 +1,35 @@
+package de.comutions.cxeconomy.command;
+
+import de.comutions.cxeconomy.CXEconomy;
+import de.comutions.cxeconomy.util.ColorUtil;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+
+public class ReloadCommand implements CommandExecutor {
+
+    private final CXEconomy plugin;
+
+    public ReloadCommand(CXEconomy plugin) {
+        this.plugin = plugin;
+    }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (!sender.hasPermission("cxeconomy.manage.reload.admin")) {
+            ColorUtil.sendMessage(sender, plugin.getLanguageManager().getMessage("no-permission"));
+            return true;
+        }
+
+        plugin.reloadConfig();
+        plugin.getLanguageManager().reloadLanguages();
+        
+        ColorUtil.sendMessage(sender, plugin.getLanguageManager().getMessage("reload-success"));
+        return true;
+    }
+}
+
+
+
+
+
